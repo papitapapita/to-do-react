@@ -1,8 +1,9 @@
+import './ToDoList.css';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 function ToDoList({ children }) {
-  return <ul>{children}</ul>;
+  return <ul className="to-do-list">{children}</ul>;
 }
 
 ToDoList.propTypes = {

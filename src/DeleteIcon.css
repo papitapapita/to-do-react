@@ -1,0 +1,7 @@
+.to-do__delete-logo {
+  left: 15px;
+}
+
+.to-do__delete-logo svg:hover {
+  fill: var(--pink);
+}

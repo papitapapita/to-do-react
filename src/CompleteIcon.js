@@ -8,5 +8,5 @@ export function CompleteIcon({ onComplete }) {
 }
 
 CompleteIcon.propTypes = {
-  onComplete: PropTypes.func,
+  onComplete: PropTypes.func.isRequired,
 };
