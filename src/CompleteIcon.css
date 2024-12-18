@@ -1,0 +1,18 @@
+.to-do--completed .to-do__completed-log svg {
+  fill: var(--green);
+}
+
+.to-do__completed--logo {
+  fill: var(--yellow);
+  width: 28px;
+  height: 28px;
+  right: 10px;
+}
+
+.to-do__completed-logo svg:hover {
+  fill: var(--green);
+}
+
+.to-do__completed-logo svg:active {
+  fill: #1ec296;
+}
