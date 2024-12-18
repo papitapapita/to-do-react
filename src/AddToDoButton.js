@@ -1,7 +1,7 @@
 import React from 'react';
 import './AddToDoButton.css';
 
-export function CreateToDoButton() {
+export function AddToDoButton() {
   return (
     <button className="add-button" type="button" value="+">
       +

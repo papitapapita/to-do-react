@@ -1,10 +1,10 @@
 const toDos = [
-  { text: 'Run', completed: false },
-  { text: 'Jump', completed: true },
-  { text: 'Work', completed: false },
-  { text: 'Exercise', completed: true },
-  { text: 'Stretch', completed: false },
-  { text: 'Drink Coffee', completed: true }
+  { description: 'Run', completed: false },
+  { description: 'Jump', completed: true },
+  { description: 'Work', completed: false },
+  { description: 'Exercise', completed: true },
+  { description: 'Stretch', completed: false },
+  { description: 'Drink Coffee', completed: true },
 ];
 
 export { toDos };
