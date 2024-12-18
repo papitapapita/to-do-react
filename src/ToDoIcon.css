@@ -1,0 +1,11 @@
+.to-do__logo {
+  fill: var(--yellow);
+  z-index: 10;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
+
+.to-do:hover .to-do__logo {
+  fill: var(--black);
+}

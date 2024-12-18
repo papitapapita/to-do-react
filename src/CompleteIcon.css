@@ -2,7 +2,7 @@
   fill: var(--green);
 }
 
-.to-do__completed--logo {
+.to-do__completed-logo {
   fill: var(--yellow);
   width: 28px;
   height: 28px;

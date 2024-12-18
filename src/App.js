@@ -11,7 +11,8 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const [toDos, setToDos] = useState(defaultToDos);
 
-  const totalCompletedToDos = toDos.filter(
+  console.log(toDos);
+  const totalCompletedToDos = toDos?.filter(
     (toDo) => toDo.completed
   ).length;
   const totalToDos = toDos.length;
@@ -25,13 +26,13 @@ function App() {
   }, [toDos, searchValue]);
 
   const toggleCompletion = (description) => {
-    setToDos((prevToDos) => {
+    setToDos((prevToDos) =>
       prevToDos.map((toDo) =>
         toDo.description === description
           ? { ...toDo, completed: !toDo.completed }
           : toDo
-      );
-    });
+      )
+    );
   };
 
   const deleteToDo = (description) => {
