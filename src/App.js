@@ -1,38 +1,11 @@
-import './App.css';
-import { ToDoCounter } from './ToDoCounter';
-import { ToDoItem } from './ToDoItem';
-import { ToDoSearch } from './ToDoSearch';
-import { ToDoList } from './ToDoList';
-import { AddToDoButton } from './AddToDoButton';
-import { toDos as defaultToDos } from './toDos';
+import { ToDoCounter } from './components/ToDoCounter';
+import { ToDoItem } from './components/ToDoItem';
+import { ToDoSearch } from './components/ToDoSearch';
+import { ToDoList } from './components/ToDoList';
+import { AddToDoButton } from './components/AddToDoButton';
+import { toDos as defaultToDos } from './utils/toDos';
+import { useLocalStorage } from './hooks/useLocalStorage';
 import React, { useState, useMemo } from 'react';
-
-function useLocalStorage(storageName, initialState = []) {
-  const localStorageItems =
-    localStorage.getItem(storageName);
-
-  if (!localStorageItems) {
-    localStorage.setItem(
-      storageName,
-      JSON.stringify(initialState)
-    );
-  }
-
-  const [items, setItems] = React.useState(
-    JSON.parse(localStorageItems)
-  );
-
-  function saveItems(newItems) {
-    localStorage.setItem(
-      storageName,
-      JSON.stringify(newItems)
-    );
-
-    setItems(newItems);
-  }
-
-  return [items, saveItems];
-}
 
 function App() {
   const [searchValue, setSearchValue] = useState('');

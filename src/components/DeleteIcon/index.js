@@ -1,5 +1,5 @@
 import './DeleteIcon.css';
-import { ToDoIcon } from './ToDoIcon';
+import { ToDoIcon } from '../ToDoIcon';
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,8 +1,8 @@
 import './ToDoItem.css';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { DeleteIcon } from './DeleteIcon';
-import { CompleteIcon } from './CompleteIcon';
+import { DeleteIcon } from '../DeleteIcon';
+import { CompleteIcon } from '../CompleteIcon';
 
 function ToDoItem({
   description,
