@@ -1,7 +1,7 @@
 import './ToDoSearch.css';
 import React from 'react';
 import PropTypes from 'prop-types';
-//import searchIcon from './search.svg';
+import { FaSearch as SearchSVG } from 'react-icons/fa';
 
 export function ToDoSearch({
   searchValue,
@@ -18,7 +18,7 @@ export function ToDoSearch({
           type="text"
           className="search__input"
         />
-        <i className="search__icon"></i>
+        <SearchSVG className="search__icon" />
       </form>
     </div>
   );

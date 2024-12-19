@@ -11,7 +11,6 @@ function App() {
   const [searchValue, setSearchValue] = useState('');
   const [toDos, setToDos] = useState(defaultToDos);
 
-  console.log(toDos);
   const totalCompletedToDos = toDos?.filter(
     (toDo) => toDo.completed
   ).length;

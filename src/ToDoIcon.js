@@ -1,8 +1,8 @@
 import './ToDoIcon.css';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ReactComponent as CheckSVG } from './check.svg';
-import { ReactComponent as DeleteSVG } from './delete.svg';
+import { FaCheck as CheckSVG } from 'react-icons/fa6';
+import { FaX as DeleteSVG } from 'react-icons/fa6';
 
 const iconTypes = {
   completed: <CheckSVG />,
