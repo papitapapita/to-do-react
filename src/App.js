@@ -4,12 +4,24 @@ import { ToDoItem } from './ToDoItem';
 import { ToDoSearch } from './ToDoSearch';
 import { ToDoList } from './ToDoList';
 import { AddToDoButton } from './AddToDoButton';
-import { toDos as defaultToDos } from './toDos';
+//import { toDos as defaultToDos } from './toDos';
 import React, { useState, useMemo } from 'react';
+
+const localStorageName = 'TODOS';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
-  const [toDos, setToDos] = useState(defaultToDos);
+  const [toDos, setToDos] = useState(() => {
+    const localStorageToDos = localStorage.getItem(
+      localStorageName
+    );
+
+    if (!localStorageToDos) {
+      return [];
+    }
+
+    return JSON.parse(localStorageToDos);
+  });
 
   const totalCompletedToDos = toDos?.filter(
     (toDo) => toDo.completed
@@ -25,20 +37,30 @@ function App() {
   }, [toDos, searchValue]);
 
   const toggleCompletion = (description) => {
-    setToDos((prevToDos) =>
-      prevToDos.map((toDo) =>
-        toDo.description === description
-          ? { ...toDo, completed: !toDo.completed }
-          : toDo
-      )
+    const newToDos = toDos.map((toDo) =>
+      toDo.description === description
+        ? { ...toDo, completed: !toDo.completed }
+        : toDo
+    );
+
+    setToDos(newToDos);
+
+    localStorage.setItem(
+      localStorageName,
+      JSON.stringify(newToDos)
     );
   };
 
   const deleteToDo = (description) => {
-    setToDos((prevToDos) =>
-      prevToDos.filter(
-        (toDo) => toDo.description !== description
-      )
+    const newToDos = toDos.filter(
+      (toDo) => toDo.description !== description
+    );
+
+    setToDos(newToDos);
+
+    localStorage.setItem(
+      localStorageName,
+      JSON.stringify(newToDos)
     );
   };
 
