@@ -1,11 +1,7 @@
-import { ToDoCounter } from './components/ToDoCounter';
-import { ToDoItem } from './components/ToDoItem';
-import { ToDoSearch } from './components/ToDoSearch';
-import { ToDoList } from './components/ToDoList';
-import { AddToDoButton } from './components/AddToDoButton';
 import { toDos as defaultToDos } from './utils/toDos';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import React, { useState, useMemo } from 'react';
+import { AppUI } from './components/AppUI';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
@@ -50,30 +46,15 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <ToDoCounter
-        completed={totalCompletedToDos}
-        total={totalToDos}
-      />
-      <ToDoSearch
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-      />
-      <ToDoList>
-        {filteredToDos.map((toDo) => (
-          <ToDoItem
-            key={toDo.description}
-            description={toDo.description}
-            completed={toDo.completed}
-            onComplete={() =>
-              toggleCompletion(toDo.description)
-            }
-            onDelete={() => deleteToDo(toDo.description)}
-          />
-        ))}
-      </ToDoList>
-      <AddToDoButton onAdd={addToDo} />
-    </div>
+    <AppUI
+      setSearchValue={setSearchValue}
+      addToDo={addToDo}
+      deleteToDo={deleteToDo}
+      toggleCompletion={toggleCompletion}
+      filteredToDos={filteredToDos}
+      totalCompletedToDos={totalCompletedToDos}
+      totalToDos={totalToDos}
+    />
   );
 }
 
