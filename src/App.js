@@ -4,24 +4,42 @@ import { ToDoItem } from './ToDoItem';
 import { ToDoSearch } from './ToDoSearch';
 import { ToDoList } from './ToDoList';
 import { AddToDoButton } from './AddToDoButton';
-//import { toDos as defaultToDos } from './toDos';
+import { toDos as defaultToDos } from './toDos';
 import React, { useState, useMemo } from 'react';
 
-const localStorageName = 'TODOS';
+function useLocalStorage(storageName, initialState = []) {
+  const localStorageItems =
+    localStorage.getItem(storageName);
+
+  if (!localStorageItems) {
+    localStorage.setItem(
+      storageName,
+      JSON.stringify(initialState)
+    );
+  }
+
+  const [items, setItems] = React.useState(
+    JSON.parse(localStorageItems)
+  );
+
+  function saveItems(newItems) {
+    localStorage.setItem(
+      storageName,
+      JSON.stringify(newItems)
+    );
+
+    setItems(newItems);
+  }
+
+  return [items, saveItems];
+}
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
-  const [toDos, setToDos] = useState(() => {
-    const localStorageToDos = localStorage.getItem(
-      localStorageName
-    );
-
-    if (!localStorageToDos) {
-      return [];
-    }
-
-    return JSON.parse(localStorageToDos);
-  });
+  const [toDos, setToDos] = useLocalStorage(
+    'TODOS_V1',
+    defaultToDos
+  );
 
   const totalCompletedToDos = toDos?.filter(
     (toDo) => toDo.completed
@@ -44,11 +62,6 @@ function App() {
     );
 
     setToDos(newToDos);
-
-    localStorage.setItem(
-      localStorageName,
-      JSON.stringify(newToDos)
-    );
   };
 
   const deleteToDo = (description) => {
@@ -57,11 +70,6 @@ function App() {
     );
 
     setToDos(newToDos);
-
-    localStorage.setItem(
-      localStorageName,
-      JSON.stringify(newToDos)
-    );
   };
 
   const addToDo = (newToDo) => {
