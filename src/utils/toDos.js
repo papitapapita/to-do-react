@@ -7,4 +7,4 @@ const toDos = [
   { description: 'Drink Coffee', completed: true },
 ];
 
-export { toDos };
+export { toDos as defaultToDos };

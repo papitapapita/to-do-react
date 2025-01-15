@@ -15,10 +15,13 @@ export function AppUI({
   addToDo,
   toggleCompletion,
   deleteToDo,
+  loading,
+  error,
 }) {
   return (
     <div className="App">
       <ToDoCounter
+        loading={loading}
         completed={totalCompletedToDos}
         total={totalToDos}
       />
@@ -27,6 +30,11 @@ export function AppUI({
         setSearchValue={setSearchValue}
       />
       <ToDoList>
+        {loading && <p>Loading</p>}
+        {error && <p>There was a problem!</p>}
+        {!loading && filteredToDos.length === 0 && (
+          <p>Create your first ToDo!</p>
+        )}
         {filteredToDos.map((toDo) => (
           <ToDoItem
             key={toDo.description}
@@ -45,6 +53,8 @@ export function AppUI({
 }
 
 AppUI.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.bool.isRequired,
   totalCompletedToDos: PropTypes.number.isRequired,
   totalToDos: PropTypes.number.isRequired,
   searchValue: PropTypes.string.isRequired,

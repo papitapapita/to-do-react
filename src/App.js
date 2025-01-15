@@ -1,14 +1,16 @@
-import { toDos as defaultToDos } from './utils/toDos';
+//import { defaultToDos } from './utils/toDos';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import React, { useState, useMemo } from 'react';
 import { AppUI } from './components/AppUI';
 
 function App() {
   const [searchValue, setSearchValue] = useState('');
-  const [toDos, setToDos] = useLocalStorage(
-    'TODOS_V1',
-    defaultToDos
-  );
+  const {
+    items: toDos,
+    saveItems: setToDos,
+    loading,
+    error,
+  } = useLocalStorage('TODOS_V1');
 
   const totalCompletedToDos = toDos?.filter(
     (toDo) => toDo.completed
@@ -48,12 +50,15 @@ function App() {
   return (
     <AppUI
       setSearchValue={setSearchValue}
+      searchValue={searchValue}
       addToDo={addToDo}
       deleteToDo={deleteToDo}
       toggleCompletion={toggleCompletion}
       filteredToDos={filteredToDos}
       totalCompletedToDos={totalCompletedToDos}
       totalToDos={totalToDos}
+      loading={loading}
+      error={error}
     />
   );
 }

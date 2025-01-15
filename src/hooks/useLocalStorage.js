@@ -1,22 +1,37 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 
 export function useLocalStorage(
   storageName,
   initialState = []
 ) {
-  const localStorageItems =
-    localStorage.getItem(storageName);
+  const [items, setItems] = useState(initialState);
 
-  if (!localStorageItems) {
-    localStorage.setItem(
-      storageName,
-      JSON.stringify(initialState)
-    );
-  }
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
-  const [items, setItems] = React.useState(
-    JSON.parse(localStorageItems)
-  );
+  useEffect(() => {
+    (async () => {
+      const delay = (time) =>
+        new Promise((resolve) => setTimeout(resolve, time));
+      try {
+        await delay(1000);
+        if (!localStorage.getItem(storageName)) {
+          localStorage.setItem(
+            storageName,
+            JSON.stringify(initialState)
+          );
+        } else {
+          setItems(
+            JSON.parse(localStorage.getItem(storageName))
+          );
+        }
+      } catch (error) {
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
 
   function saveItems(newItems) {
     localStorage.setItem(
@@ -27,5 +42,12 @@ export function useLocalStorage(
     setItems(newItems);
   }
 
-  return [items, saveItems];
+  return {
+    items,
+    saveItems,
+    loading,
+    setLoading,
+    error,
+    setError,
+  };
 }
