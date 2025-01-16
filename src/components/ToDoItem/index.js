@@ -22,6 +22,7 @@ function ToDoItem({
 }
 
 ToDoItem.propTypes = {
+  loading: PropTypes.bool.isRequired,
   description: PropTypes.string.isRequired,
   completed: PropTypes.bool.isRequired,
   onComplete: PropTypes.func.isRequired,

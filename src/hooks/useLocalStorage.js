@@ -14,7 +14,7 @@ export function useLocalStorage(
       const delay = (time) =>
         new Promise((resolve) => setTimeout(resolve, time));
       try {
-        await delay(1000);
+        await delay(3000);
         if (!localStorage.getItem(storageName)) {
           localStorage.setItem(
             storageName,

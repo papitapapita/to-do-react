@@ -5,6 +5,7 @@ import { ToDoItem } from '../ToDoItem';
 import { ToDoSearch } from '../ToDoSearch';
 import { ToDoList } from '../ToDoList';
 import { AddToDoButton } from '../AddToDoButton';
+import { LoadingItem } from '../LoadingItem';
 
 export function AppUI({
   totalCompletedToDos,
@@ -30,7 +31,10 @@ export function AppUI({
         setSearchValue={setSearchValue}
       />
       <ToDoList>
-        {loading && <p>Loading</p>}
+        {loading &&
+          new Array(4)
+            .fill(0)
+            .map((_, index) => <LoadingItem key={index} />)}
         {error && <p>There was a problem!</p>}
         {!loading && filteredToDos.length === 0 && (
           <p>Create your first ToDo!</p>
