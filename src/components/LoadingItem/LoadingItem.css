@@ -2,20 +2,31 @@
   background-color: var(--black);
   position: relative;
   top: 0;
+  display: flex;
+  justify-content: space-between;
   max-width: 1024px;
   min-width: 100%;
   min-height: 62.39px;
-  padding: 20px 50px;
+  padding: 20px 20px;
   /*border: 2px var(--yellow) solid;*/
   border-radius: 10px;
   overflow: hidden;
   opacity: 0.5;
   animation: skeleton-loading 1s linear infinite alternate;
 }
+/*
+.buttons {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: rgba(255, 213, 45, 0.2);
+  opacity: 1;
+  animation: skeleton-loading 1s linear infinite alternate;
+}*/
 
 @keyframes skeleton-loading {
   0% {
-    background-color: var(--yellow);
+    background-color: rgba(255, 213, 45, 1);
   }
   100% {
     background-color: var(--black);
