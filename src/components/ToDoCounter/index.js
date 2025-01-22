@@ -1,9 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import './ToDoCounter.css';
+import { ToDoContext } from '../ToDoContext';
 
-export function ToDoCounter({ completed, total, loading }) {
-  const isCompleted = completed === total;
+export function ToDoCounter() {
+  const { totalCompletedToDos, totalToDos, loading } =
+    useContext(ToDoContext);
+  console.log(totalCompletedToDos, totalToDos, loading);
+  const isCompleted = totalCompletedToDos === totalToDos;
   return (
     <h1 className="title">
       {loading && <b>Loading...</b>}
@@ -14,15 +17,10 @@ export function ToDoCounter({ completed, total, loading }) {
           </b>
         ) : (
           <span>
-            You have completed {completed} of {total} tasks
+            You have completed {totalCompletedToDos} of{' '}
+            {totalToDos} tasks
           </span>
         ))}
     </h1>
   );
 }
-
-ToDoCounter.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  completed: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-};
