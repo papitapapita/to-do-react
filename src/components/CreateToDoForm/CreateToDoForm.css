@@ -1,0 +1,69 @@
+.create-todo-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  margin: 20px;
+  min-width: 300px;
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255, 213, 45, 0.6);
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.create-todo__title {
+  margin-bottom: 20px;
+}
+
+.create-todo__text {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  min-height: 56px;
+  min-width: 75%;
+  padding: 8px;
+  box-shadow: 0 0 12px rgba(10, 10, 10, 0.4);
+  outline-color: white;
+  background-color: var(--black);
+  color: white;
+  resize: none;
+}
+
+.form-buttons {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.create-todo__button {
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(10, 10, 10, 0.4);
+  padding: 12px;
+  font-weight: bolder;
+  text-transform: capitalize;
+  border-radius: 10px;
+  border: 2px solid var(--black);
+}
+
+.create-todo__button--cancel {
+  background-color: var(--yellow);
+}
+
+.create-todo__button--cancel:hover {
+  background-color: rgba(245, 205, 35, 1);
+}
+
+.create-todo__button--create {
+  background-color: var(--black);
+  color: white;
+}
+
+.create-todo__button--create:hover {
+  background-color: rgba(10, 10, 10, 0.8);
+}
+
+.create-todo__button:active {
+  box-shadow: none;
+}

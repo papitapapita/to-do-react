@@ -5,7 +5,6 @@ import { ToDoContext } from '../ToDoContext';
 export function ToDoCounter() {
   const { totalCompletedToDos, totalToDos, loading } =
     useContext(ToDoContext);
-  console.log(totalCompletedToDos, totalToDos, loading);
   const isCompleted = totalCompletedToDos === totalToDos;
   return (
     <h1 className="title">

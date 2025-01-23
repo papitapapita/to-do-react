@@ -16,6 +16,7 @@ function ToDoProvider({ children }) {
     loading,
     error,
   } = useLocalStorage('TODOS_V1');
+  const [openModal, setOpenModal] = useState(false);
 
   const totalCompletedToDos = toDos?.filter(
     (toDo) => toDo.completed
@@ -48,8 +49,16 @@ function ToDoProvider({ children }) {
     setToDos(newToDos);
   };
 
-  const addToDo = (newToDo) => {
-    setToDos((prevToDos) => [...prevToDos, newToDo]);
+  const addToDo = (toDoText) => {
+    const newToDo = {
+      description: toDoText,
+      completed: false,
+    };
+    setToDos([...toDos, newToDo]);
+  };
+
+  const showModal = () => {
+    setOpenModal(true);
   };
 
   return (
@@ -65,6 +74,9 @@ function ToDoProvider({ children }) {
         totalToDos,
         loading,
         error,
+        openModal,
+        setOpenModal,
+        showModal,
       }}
     >
       {children}
