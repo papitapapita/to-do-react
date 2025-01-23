@@ -13,6 +13,7 @@ export function CreateToDoForm() {
       <textarea
         className="create-todo__text"
         ref={textareaRef}
+        required
       ></textarea>
       <div className="form-buttons">
         <input
@@ -29,7 +30,8 @@ export function CreateToDoForm() {
           value="create"
           onClick={() => {
             if (textareaRef.current) {
-              addToDo(textareaRef.current.value);
+              addToDo(textareaRef.current.value.trim());
+              setOpenModal(false);
             }
           }}
         />
