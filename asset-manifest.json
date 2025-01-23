@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/papitapapita/to-do-react.git/static/css/main.afddc6e5.css",
+    "main.js": "/papitapapita/to-do-react.git/static/js/main.7f7b1778.js",
+    "index.html": "/papitapapita/to-do-react.git/index.html",
+    "main.afddc6e5.css.map": "/papitapapita/to-do-react.git/static/css/main.afddc6e5.css.map",
+    "main.7f7b1778.js.map": "/papitapapita/to-do-react.git/static/js/main.7f7b1778.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.afddc6e5.css",
+    "static/js/main.7f7b1778.js"
+  ]
+}
