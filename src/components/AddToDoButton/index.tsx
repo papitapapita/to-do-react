@@ -1,22 +1,23 @@
 import React from 'react';
 import './AddToDoButton.css';
-import PropTypes from 'prop-types';
 
-export function AddToDoButton({ setOpenModal }) {
+export function AddToDoButton({
+  setOpenModal,
+}: {
+  setOpenModal: React.Dispatch<
+    React.SetStateAction<boolean>
+  >;
+}) {
   return (
     <button
       className="add-button"
       type="button"
       value="+"
       onClick={() => {
-        setOpenModal((state) => !state);
+        setOpenModal((state: boolean) => !state);
       }}
     >
       +
     </button>
   );
 }
-
-AddToDoButton.propTypes = {
-  setOpenModal: PropTypes.func,
-};

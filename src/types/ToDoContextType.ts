@@ -1,4 +1,5 @@
 import { ToDo } from './ToDo';
+import React from 'react';
 
 export interface ToDoContextType {
   setSearchValue: (value: string) => void;
@@ -12,6 +13,8 @@ export interface ToDoContextType {
   loading: boolean;
   error: boolean;
   openModal: boolean;
-  setOpenModal: (value: boolean) => void;
+  setOpenModal: React.Dispatch<
+    React.SetStateAction<boolean>
+  >;
   showModal: () => void;
 }
