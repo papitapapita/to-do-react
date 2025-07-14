@@ -1,11 +1,17 @@
-import React from 'react';
+import { ReactNode } from 'react';
 import './Modal.css';
 import { createPortal } from 'react-dom';
 
-function Modal({ children }) {
+function Modal({ children }: { children: ReactNode }) {
+  const modal = document.getElementById('modal');
+
+  if (!modal) {
+    throw new Error('There must be a modal element');
+  }
+
   return createPortal(
     <div className="modal-background">{children}</div>,
-    document.getElementById('modal')
+    modal
   );
 }
 
