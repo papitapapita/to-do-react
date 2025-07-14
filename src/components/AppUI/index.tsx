@@ -17,6 +17,7 @@ export function AppUI() {
     deleteToDo,
     openModal,
     setOpenModal,
+    searchValue,
   } = useToDoContext();
 
   return (
@@ -30,9 +31,11 @@ export function AppUI() {
             .fill(0)
             .map((_, index) => <LoadingItem key={index} />)}
         {error && <p>There was a problem!</p>}
-        {!loading && filteredToDos.length === 0 && (
-          <p>Create your first ToDo!</p>
-        )}
+        {!loading &&
+          filteredToDos.length === 0 &&
+          searchValue.length === 0 && (
+            <p>Create your first ToDo!</p>
+          )}
         {filteredToDos.map((toDo) => (
           <ToDoItem
             key={toDo.description}
@@ -44,6 +47,12 @@ export function AppUI() {
             onDelete={() => deleteToDo(toDo.description)}
           />
         ))}
+        {!loading &&
+          !error &&
+          searchValue.length > 0 &&
+          filteredToDos.length === 0 && (
+            <p>No matches with {searchValue}</p>
+          )}
       </ToDoList>
 
       {!loading && (

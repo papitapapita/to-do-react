@@ -1,10 +1,10 @@
-import React, { useContext, useRef } from 'react';
-import { ToDoContext } from '../ToDoContext';
+import { useRef } from 'react';
 import './CreateToDoForm.css';
+import { useToDoContext } from '../../hooks/useToDoContext';
 
 export function CreateToDoForm() {
-  const { setOpenModal, addToDo } = useContext(ToDoContext);
-  const textareaRef = useRef(null);
+  const { setOpenModal, addToDo } = useToDoContext();
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   return (
     <form className="create-todo-form">
       <h2 className="create-todo__title">
