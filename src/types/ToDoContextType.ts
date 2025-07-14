@@ -2,7 +2,9 @@ import { ToDo } from './ToDo';
 import React from 'react';
 
 export interface ToDoContextType {
-  setSearchValue: (value: string) => void;
+  setSearchValue: React.Dispatch<
+    React.SetStateAction<string>
+  >;
   searchValue: string;
   addToDo: (toDoText: string) => void;
   deleteToDo: (description: string) => void;

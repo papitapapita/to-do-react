@@ -1,9 +1,15 @@
 import './ToDoCounter.css';
-import { useToDoContext } from '../../hooks/useToDoContext';
+interface ToDoCounterProps {
+  totalCompletedToDos: number;
+  totalToDos: number;
+  loading: boolean;
+}
 
-export function ToDoCounter() {
-  const { totalCompletedToDos, totalToDos, loading } =
-    useToDoContext();
+export function ToDoCounter({
+  totalCompletedToDos,
+  totalToDos,
+  loading,
+}: ToDoCounterProps) {
   const isCompleted = totalCompletedToDos === totalToDos;
   return (
     <h1 className="title">

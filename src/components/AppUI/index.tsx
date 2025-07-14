@@ -18,12 +18,24 @@ export function AppUI() {
     openModal,
     setOpenModal,
     searchValue,
+    totalCompletedToDos,
+    totalToDos,
+    setSearchValue,
   } = useToDoContext();
 
   return (
     <div className="App">
-      <ToDoCounter />
-      <ToDoSearch />
+      <header>
+        <ToDoCounter
+          totalCompletedToDos={totalCompletedToDos}
+          totalToDos={totalToDos}
+          loading={loading}
+        />
+        <ToDoSearch
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+        />
+      </header>
 
       <ToDoList>
         {loading &&
