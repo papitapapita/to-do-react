@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
-export function useLocalStorage(
-  storageName,
-  initialState = []
+export function useLocalStorage<T>(
+  storageName: string,
+  initialState: T[] = []
 ) {
   const [items, setItems] = useState(initialState);
 
@@ -11,19 +11,20 @@ export function useLocalStorage(
 
   useEffect(() => {
     (async () => {
-      const delay = (time) =>
+      const delay = (time: number) =>
         new Promise((resolve) => setTimeout(resolve, time));
       try {
         await delay(3000);
-        if (!localStorage.getItem(storageName)) {
+
+        const item = localStorage.getItem(storageName);
+
+        if (!item) {
           localStorage.setItem(
             storageName,
             JSON.stringify(initialState)
           );
         } else {
-          setItems(
-            JSON.parse(localStorage.getItem(storageName))
-          );
+          setItems(JSON.parse(item));
         }
       } catch (error) {
         setError(true);
@@ -33,7 +34,7 @@ export function useLocalStorage(
     })();
   }, []);
 
-  function saveItems(newItems) {
+  function saveItems(newItems: T[]) {
     localStorage.setItem(
       storageName,
       JSON.stringify(newItems)

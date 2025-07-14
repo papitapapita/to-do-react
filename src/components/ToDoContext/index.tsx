@@ -1,21 +1,28 @@
-import React, {
+import {
   createContext,
   useState,
   useMemo,
+  ReactNode,
 } from 'react';
-import { useLocalStorage } from './useLocalStorage';
-import PropTypes from 'prop-types';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { ToDoContextType, ToDo } from '../../types';
 
-const ToDoContext = createContext();
+const ToDoContext = createContext<
+  ToDoContextType | undefined
+>(undefined);
 
-function ToDoProvider({ children }) {
+interface ToDoProviderProps {
+  children: ReactNode;
+}
+
+function ToDoProvider({ children }: ToDoProviderProps) {
   const [searchValue, setSearchValue] = useState('');
   const {
     items: toDos,
     saveItems: setToDos,
     loading,
     error,
-  } = useLocalStorage('TODOS_V1');
+  } = useLocalStorage<ToDo>('TODOS_V1');
   const [openModal, setOpenModal] = useState(false);
 
   const totalCompletedToDos = toDos?.filter(
@@ -85,7 +92,3 @@ function ToDoProvider({ children }) {
 }
 
 export { ToDoContext, ToDoProvider };
-
-ToDoProvider.propTypes = {
-  children: PropTypes.object,
-};

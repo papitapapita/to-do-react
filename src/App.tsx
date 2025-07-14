@@ -1,4 +1,3 @@
-import React from 'react';
 import { AppUI } from './components/AppUI';
 import { ToDoProvider } from './components/ToDoContext';
 
