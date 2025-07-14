@@ -1,11 +1,9 @@
 import './ToDoSearch.css';
-import React, { useContext } from 'react';
 import { FaSearch as SearchSVG } from 'react-icons/fa';
-import { ToDoContext } from '../ToDoContext';
+import { useToDoContext } from '../../hooks/useToDoContext';
 
 export function ToDoSearch() {
-  const { searchValue, setSearchValue } =
-    useContext(ToDoContext);
+  const { searchValue, setSearchValue } = useToDoContext();
   return (
     <div className="search-container">
       <form className="search__form" name="search">
