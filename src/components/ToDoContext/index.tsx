@@ -38,7 +38,7 @@ function ToDoProvider({ children }: ToDoProviderProps) {
     );
   }, [toDos, searchValue]);
 
-  const toggleCompletion = (description) => {
+  const toggleCompletion = (description: string) => {
     const newToDos = toDos.map((toDo) =>
       toDo.description === description
         ? { ...toDo, completed: !toDo.completed }
@@ -48,7 +48,7 @@ function ToDoProvider({ children }: ToDoProviderProps) {
     setToDos(newToDos);
   };
 
-  const deleteToDo = (description) => {
+  const deleteToDo = (description: string) => {
     const newToDos = toDos.filter(
       (toDo) => toDo.description !== description
     );
@@ -56,7 +56,7 @@ function ToDoProvider({ children }: ToDoProviderProps) {
     setToDos(newToDos);
   };
 
-  const addToDo = (toDoText) => {
+  const addToDo = (toDoText: string) => {
     const newToDo = {
       description: toDoText,
       completed: false,
