@@ -1,15 +1,19 @@
 import './ToDoItem.css';
-import PropTypes from 'prop-types';
-import React from 'react';
 import { DeleteIcon } from '../DeleteIcon';
 import { CompleteIcon } from '../CompleteIcon';
 
+interface ToDoItemProps {
+  description: string;
+  completed: boolean;
+  onComplete: () => void;
+  onDelete: () => void;
+}
 function ToDoItem({
   description,
   completed,
   onComplete,
   onDelete,
-}) {
+}: ToDoItemProps) {
   return (
     <li
       className={`to-do ${completed ? 'to-do--completed' : ''}`}
@@ -20,12 +24,5 @@ function ToDoItem({
     </li>
   );
 }
-
-ToDoItem.propTypes = {
-  description: PropTypes.string.isRequired,
-  completed: PropTypes.bool.isRequired,
-  onComplete: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-};
 
 export { ToDoItem };

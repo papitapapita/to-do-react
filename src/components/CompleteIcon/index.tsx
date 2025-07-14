@@ -1,12 +1,10 @@
 import './CompleteIcon.css';
-import React from 'react';
-import PropTypes from 'prop-types';
 import { ToDoIcon } from '../ToDoIcon';
 
-export function CompleteIcon({ onComplete }) {
+export function CompleteIcon({
+  onComplete,
+}: {
+  onComplete: () => void;
+}) {
   return <ToDoIcon type="completed" onClick={onComplete} />;
 }
-
-CompleteIcon.propTypes = {
-  onComplete: PropTypes.func.isRequired,
-};

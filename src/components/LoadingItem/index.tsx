@@ -1,5 +1,4 @@
 import './LoadingItem.css';
-import React from 'react';
 
 function LoadingItem() {
   return (
