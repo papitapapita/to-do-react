@@ -1,13 +1,13 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ToDoCounter } from '../ToDoCounter';
 import { ToDoItem } from '../ToDoItem';
 import { ToDoSearch } from '../ToDoSearch';
 import { ToDoList } from '../ToDoList';
 import { AddToDoButton } from '../AddToDoButton';
 import { LoadingItem } from '../LoadingItem';
-import { ToDoContext } from '../ToDoContext';
 import { Modal } from '../Modal';
 import { CreateToDoForm } from '../CreateToDoForm';
+import { useToDoContext } from '../../hooks/useToDoContext';
 
 export function AppUI() {
   const {
@@ -18,7 +18,8 @@ export function AppUI() {
     deleteToDo,
     openModal,
     setOpenModal,
-  } = useContext(ToDoContext);
+  } = useToDoContext();
+
   return (
     <div className="App">
       <ToDoCounter />
