@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
 import './ToDoCounter.css';
-import { ToDoContext } from '../ToDoContext';
+import { useToDoContext } from '../../hooks/useToDoContext';
 
 export function ToDoCounter() {
   const { totalCompletedToDos, totalToDos, loading } =
-    useContext(ToDoContext);
+    useToDoContext();
   const isCompleted = totalCompletedToDos === totalToDos;
   return (
     <h1 className="title">

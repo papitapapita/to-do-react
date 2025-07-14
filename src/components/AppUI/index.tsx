@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { ToDoCounter } from '../ToDoCounter';
 import { ToDoItem } from '../ToDoItem';
 import { ToDoSearch } from '../ToDoSearch';
