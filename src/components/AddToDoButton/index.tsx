@@ -1,12 +1,10 @@
-import React from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import './AddToDoButton.css';
 
 export function AddToDoButton({
-  setOpenModal,
+  setOpenCreateToDo,
 }: {
-  setOpenModal: React.Dispatch<
-    React.SetStateAction<boolean>
-  >;
+  setOpenCreateToDo: Dispatch<SetStateAction<boolean>>;
 }) {
   return (
     <button
@@ -14,7 +12,7 @@ export function AddToDoButton({
       type="button"
       value="+"
       onClick={() => {
-        setOpenModal((state: boolean) => !state);
+        setOpenCreateToDo((state: boolean) => !state);
       }}
     >
       +

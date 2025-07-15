@@ -10,7 +10,11 @@ function useToDoContext() {
     loading,
     error,
   } = useLocalStorage<ToDo>('TODOS_V1');
-  const [openModal, setOpenModal] = useState(false);
+
+  const [openCreateToDo, setOpenCreateToDo] =
+    useState(false);
+  const [openChangeAlert, setOpenChangeAlert] =
+    useState(false);
 
   const totalCompletedToDos = toDos?.filter(
     (toDo) => toDo.completed
@@ -51,10 +55,6 @@ function useToDoContext() {
     setToDos([...toDos, newToDo]);
   };
 
-  const showModal = () => {
-    setOpenModal(true);
-  };
-
   return {
     setSearchValue,
     searchValue,
@@ -66,9 +66,10 @@ function useToDoContext() {
     totalToDos,
     loading,
     error,
-    openModal,
-    setOpenModal,
-    showModal,
+    openCreateToDo,
+    setOpenCreateToDo,
+    openChangeAlert,
+    setOpenChangeAlert,
   };
 }
 

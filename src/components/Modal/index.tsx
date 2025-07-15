@@ -2,7 +2,11 @@ import { ReactNode } from 'react';
 import './Modal.css';
 import { createPortal } from 'react-dom';
 
-function Modal({ children }: { children: ReactNode }) {
+export function Modal({
+  children,
+}: {
+  children: ReactNode;
+}) {
   const modal = document.getElementById('modal');
 
   if (!modal) {
@@ -14,5 +18,3 @@ function Modal({ children }: { children: ReactNode }) {
     modal
   );
 }
-
-export { Modal };

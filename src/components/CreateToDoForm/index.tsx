@@ -1,15 +1,13 @@
-import React, { useRef } from 'react';
+import { useRef, Dispatch, SetStateAction } from 'react';
 import './CreateToDoForm.css';
 
 interface CreateToDoFormProps {
-  setOpenModal: React.Dispatch<
-    React.SetStateAction<boolean>
-  >;
+  setOpenCreateToDo: Dispatch<SetStateAction<boolean>>;
   addToDo: (toDoText: string) => void;
 }
 
 export function CreateToDoForm({
-  setOpenModal,
+  setOpenCreateToDo,
   addToDo,
 }: CreateToDoFormProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -29,7 +27,7 @@ export function CreateToDoForm({
           type="button"
           value="cancel"
           onClick={() => {
-            setOpenModal(false);
+            setOpenCreateToDo(false);
           }}
         />
         <input
@@ -37,9 +35,12 @@ export function CreateToDoForm({
           type="button"
           value="create"
           onClick={() => {
-            if (textareaRef.current) {
+            if (
+              textareaRef.current &&
+              textareaRef.current.value.length > 0
+            ) {
               addToDo(textareaRef.current.value.trim());
-              setOpenModal(false);
+              setOpenCreateToDo(false);
             }
           }}
         />

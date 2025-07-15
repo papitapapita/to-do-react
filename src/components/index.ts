@@ -1,3 +1,4 @@
+export { ChangeAlert } from './ChangeAlert';
 export { ToDoCounter } from './ToDoCounter';
 export { ToDoItem } from './ToDoItem';
 export { ToDoSearch } from './ToDoSearch';

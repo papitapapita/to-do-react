@@ -7,7 +7,8 @@ interface ToDoItemProps {
   onComplete: () => void;
   onDelete: () => void;
 }
-function ToDoItem({
+
+export function ToDoItem({
   description,
   completed,
   onComplete,
@@ -23,5 +24,3 @@ function ToDoItem({
     </li>
   );
 }
-
-export { ToDoItem };

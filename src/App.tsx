@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
   ToDoCounter,
   ToDoItem,
@@ -7,24 +8,42 @@ import {
   LoadingItem,
   Modal,
   CreateToDoForm,
+  ChangeAlert,
 } from './components';
 import { useToDoContext } from './hooks';
 
 function App() {
   const {
-    loading,
-    error,
-    filteredToDos,
-    toggleCompletion,
-    deleteToDo,
-    openModal,
-    setOpenModal,
+    setSearchValue,
     searchValue,
+    addToDo,
+    deleteToDo,
+    toggleCompletion,
+    filteredToDos,
     totalCompletedToDos,
     totalToDos,
-    setSearchValue,
-    addToDo,
+    loading,
+    error,
+    openCreateToDo,
+    setOpenCreateToDo,
+    openChangeAlert,
+    setOpenChangeAlert,
   } = useToDoContext();
+
+  useEffect(() => {
+    const onStorage = (event: StorageEvent) => {
+      console.log('Storage event detected:', event);
+      if (event.key === 'TODOS_V1') {
+        console.log('TODOS_V1 changed, opening alert');
+        setOpenChangeAlert(true);
+      }
+    };
+
+    window.addEventListener('storage', onStorage);
+    return () => {
+      window.removeEventListener('storage', onStorage);
+    };
+  }, []);
 
   return (
     <div className="App">
@@ -72,14 +91,25 @@ function App() {
       </ToDoList>
 
       {!loading && (
-        <AddToDoButton setOpenModal={setOpenModal} />
+        <AddToDoButton
+          setOpenCreateToDo={setOpenCreateToDo}
+        />
       )}
 
-      {openModal && (
+      {openCreateToDo && (
         <Modal>
           <CreateToDoForm
-            setOpenModal={setOpenModal}
+            setOpenCreateToDo={setOpenCreateToDo}
             addToDo={addToDo}
+          />
+        </Modal>
+      )}
+
+      {openChangeAlert && (
+        <Modal>
+          <ChangeAlert
+            show={openChangeAlert}
+            setOpenChangeAlert={setOpenChangeAlert}
           />
         </Modal>
       )}

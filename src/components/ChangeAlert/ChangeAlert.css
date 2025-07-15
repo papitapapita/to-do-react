@@ -1,0 +1,56 @@
+.change-alert-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  margin: 20px;
+  min-width: 300px;
+  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255, 213, 45, 0.6);
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.change-alert__title {
+  margin-bottom: 20px;
+}
+
+.form-buttons {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.change-alert__button {
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(10, 10, 10, 0.4);
+  padding: 12px;
+  font-weight: bolder;
+  text-transform: capitalize;
+  border-radius: 10px;
+  border: 2px solid var(--black);
+}
+
+.change-alert__button--cancel {
+  background-color: var(--yellow);
+}
+
+.change-alert__button--cancel:hover {
+  background-color: rgba(245, 205, 35, 1);
+}
+
+.change-alert__button--reload {
+  background-color: var(--black);
+  color: white;
+}
+
+.change-alert__button--reload:hover {
+  background-color: rgba(10, 10, 10, 0.8);
+}
+
+.change-alert__button:active {
+  box-shadow: none;
+}

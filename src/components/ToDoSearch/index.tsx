@@ -1,12 +1,10 @@
 import './ToDoSearch.css';
 import { FaSearch as SearchSVG } from 'react-icons/fa';
-import React from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 interface ToDoSearchProps {
   searchValue: string;
-  setSearchValue: React.Dispatch<
-    React.SetStateAction<string>
-  >;
+  setSearchValue: Dispatch<SetStateAction<string>>;
   loading: boolean;
 }
 
