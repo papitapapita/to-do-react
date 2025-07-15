@@ -1,5 +1,5 @@
 import './CompleteIcon.css';
-import { ToDoIcon } from '../ToDoIcon';
+import { ToDoIcon } from '../';
 
 export function CompleteIcon({
   onComplete,

@@ -1,9 +1,17 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import './CreateToDoForm.css';
-import { useToDoContext } from '../../hooks/useToDoContext';
 
-export function CreateToDoForm() {
-  const { setOpenModal, addToDo } = useToDoContext();
+interface CreateToDoFormProps {
+  setOpenModal: React.Dispatch<
+    React.SetStateAction<boolean>
+  >;
+  addToDo: (toDoText: string) => void;
+}
+
+export function CreateToDoForm({
+  setOpenModal,
+  addToDo,
+}: CreateToDoFormProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   return (
     <form className="create-todo-form">

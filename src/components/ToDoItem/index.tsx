@@ -1,6 +1,5 @@
 import './ToDoItem.css';
-import { DeleteIcon } from '../DeleteIcon';
-import { CompleteIcon } from '../CompleteIcon';
+import { DeleteIcon, CompleteIcon } from '../';
 
 interface ToDoItemProps {
   description: string;

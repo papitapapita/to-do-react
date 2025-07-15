@@ -1,12 +1,10 @@
 import './DeleteIcon.css';
-import { ToDoIcon } from '../ToDoIcon';
-import React from 'react';
-import PropTypes from 'prop-types';
+import { ToDoIcon } from '../';
 
-export function DeleteIcon({ onDelete }) {
+export function DeleteIcon({
+  onDelete,
+}: {
+  onDelete: () => void;
+}) {
   return <ToDoIcon type="delete" onClick={onDelete} />;
 }
-
-DeleteIcon.propTypes = {
-  onDelete: PropTypes.func.isRequired,
-};
