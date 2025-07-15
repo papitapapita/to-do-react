@@ -37,6 +37,7 @@ function App() {
         <ToDoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
+          loading={loading}
         />
       </header>
 

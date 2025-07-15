@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   position: relative;
+  transition: all 0.5s;
 }
 
 .search__input {
@@ -15,6 +16,10 @@
   color: var(--yellow);
   outline: none;
   transition: 0.5s;
+}
+
+.search__form--disabled {
+  opacity: 0.2;
 }
 
 .search-container:hover .search__input,

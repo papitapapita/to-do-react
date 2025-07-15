@@ -7,15 +7,20 @@ interface ToDoSearchProps {
   setSearchValue: React.Dispatch<
     React.SetStateAction<string>
   >;
+  loading: boolean;
 }
 
 export function ToDoSearch({
   searchValue,
   setSearchValue,
+  loading,
 }: ToDoSearchProps) {
   return (
     <div className="search-container">
-      <form className="search__form" name="search">
+      <form
+        className={`search__form ${loading ? 'search__form--disabled' : ''}`}
+        name="search"
+      >
         <input
           value={searchValue || ''}
           onChange={(event) => {
@@ -23,6 +28,7 @@ export function ToDoSearch({
           }}
           type="text"
           className="search__input"
+          disabled={loading}
         />
         <SearchSVG className="search__icon" />
       </form>
