@@ -1,75 +1,73 @@
-# Repositorio base del Curso de Introducción a React.js en Platzi
+# 📝 To-Do App
 
-¡Hola, Platzinauta!
+A simple and efficient To-Do application built with React.js, TypeScript, and Vite.
 
-En este repositorio encontrarás el código de todas las clases del [Curso de Introducción a React.js](https://platzi.com/reactjs). Para empezar solo debes clonar este repositorio (`git clone`), instalar sus dependencias (`npm i`) y ejecutar la aplicación (`npm start`).
+## 🚀 Tech Stack
 
-La rama principal contiene el código con el que eempezamos el curso. En las demás ramas encontrarás el código de las siguientes clases y finalmente el deploy de la aplicación.
+- **React.js** – UI library
 
-¡Mucha suerte aprendiendo React! #NuncaParesDeAprender
+- **TypeScript** – Type safety and better DX
 
-## Getting Started with Create React App
+- **Vite** – Fast build tool and development server
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📖 Features
 
-## Available Scripts
+- ➕ Add tasks
 
-In the project directory, you can run:
+- ✅ Mark tasks as completed
 
-### `npm start`
+- 🗑️ Delete tasks
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 💾 Local storage persistence
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+📂 Project Structure
 
-### `npm run build`
+```bash
+├── src/
+│ ├── components/ # Reusable UI components
+│ ├── hooks/ # Custom React hooks
+│ ├── types/ # TypeScript type definitions
+│ ├── App.tsx # Root component
+│ ├── main.tsx # Entry point
+│ └── index.css # Global styles
+├── public/ # Static assets
+└── vite.config.ts # Vite configuration
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙️ Installation & Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Clone repository
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+git clone https://github.com/your-username/todo-app.git
 
-### `npm run eject`
+# Enter project folder
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+cd todo-app
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Install dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Run development server
 
-## Learn More
+npm run dev
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔗 Live Demo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[View Portfolio](https://todoreact.jonathanolivos.lat/)
 
-### Code Splitting
+## 🧑‍💻 Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Open the app in your browser.
 
-### Analyzing the Bundle Size
+Add tasks using the input field.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Mark tasks as complete or delete them.
 
-### Making a Progressive Web App
+Enjoy a simple productivity tool!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 📜 License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.
